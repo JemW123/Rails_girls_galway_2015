@@ -36,3 +36,22 @@
 
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
+<% if user_signed_in? %>
+  <% if current_user.id == comment.user_id %>
+
+     <p><%= link_to 'Delete' comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+   <% end %>
+ <% end%>
+<p>
+  <strong>Votes:</strong><br />
+  Austism_friendly : <%= rating _for @place, "austism_friendly" %> <br />
+  Overall : <%= rating_for @place, "overall" %>
+</p>
+<hr />
+<p>
+  <strong>Your votes:</strong><br />
+  Austism_friendly : <%= rating_for_user @place, current_user, "austism_friendly", :star => 7 %>
+  Overall : <%= rating_for_user @place, current_user, "austism_friendly", :star => 7 %>
+</p>
+<hr />

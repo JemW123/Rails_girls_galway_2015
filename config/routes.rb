@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post '/rate' => 'rater#create', :as => 'rate'
+  root :to => redirect( '/places')
   resources :comments
   resources :places
   devise_for :users
