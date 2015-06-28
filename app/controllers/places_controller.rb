@@ -66,7 +66,7 @@ class PlacesController < ApplicationController
     def set_place
       @place = Place.find(params[:id])
       @comments = @place.comments.all
-      @comments = @place.comments.build
+      @comment = @place.comments.build
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
